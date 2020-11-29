@@ -67,7 +67,8 @@ function Generation() {
             switch (_a.label) {
                 case 0:
                     args = minimist_1.default(process.argv);
-                    if (!(args['-e'] || args['--env'])) return [3 /*break*/, 1];
+                    console.log(args);
+                    if (!(args.e || args.env)) return [3 /*break*/, 1];
                     console.log('env');
                     return [3 /*break*/, 4];
                 case 1:
