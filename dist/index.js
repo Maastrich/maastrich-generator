@@ -87,8 +87,13 @@ function Generation() {
                     return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require("./" + path_1.normalize(path))); })];
                 case 3:
                     config = _a.sent();
-                    parser = new Parser_1.Parser(config);
-                    parser.parseTypes();
+                    try {
+                        parser = new Parser_1.Parser(config);
+                        parser.parseTypes();
+                    }
+                    catch (e) {
+                        new maastrich_logger_1.Logger().error('Parsing', e);
+                    }
                     return [3 /*break*/, 5];
                 case 4:
                     e_1 = _a.sent();
