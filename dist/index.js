@@ -84,15 +84,15 @@ function Generation() {
                     _a.label = 2;
                 case 2:
                     _a.trys.push([2, 4, , 5]);
-                    return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require("./" + path_1.normalize(path))); })];
+                    return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require(process.env.PWD + "/" + path)); })];
                 case 3:
                     config = _a.sent();
                     try {
-                        parser = new Parser_1.Parser(config);
+                        parser = new Parser_1.Parser(config.default);
                         parser.parseTypes();
                     }
                     catch (e) {
-                        new maastrich_logger_1.Logger().error('Parsing', e);
+                        new maastrich_logger_1.Logger().error('Parsing', "" + e);
                     }
                     return [3 /*break*/, 5];
                 case 4:

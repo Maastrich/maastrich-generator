@@ -99,12 +99,12 @@ var HandlerParser = /** @class */ (function () {
      */
     HandlerParser.prototype.parseImports = function () {
         var _this = this;
+        this.imports.push("/* Handlers for route " + this.route + " */");
         this.methodList.forEach(function (method) {
             if (method.database) {
                 _this.imports.push('import { database } from \'maastrich-database\'');
             }
         });
-        this.imports.push("/* Handlers for route " + this.route + " */");
         this.imports.push('import { Response } from \'express\';');
         this.imports.push('import * as Types from \'./types\';');
     };
@@ -117,7 +117,7 @@ var HandlerParser = /** @class */ (function () {
      */
     HandlerParser.prototype.createFunction = function (method) {
         var functionString = '';
-        functionString += "function " + method.method + "(response: Response, query: Types." + method.method + "Query, body: Types." + method + "Body) {\n";
+        functionString += "async function " + method.method + "(response: Response, query: Types." + method.method + "Query, body: Types." + method.method + "Body) {\n";
         functionString += "\t" + (method.database ? getContent(method) : 'response.status(200).json({ query, body });') + "\n";
         functionString += '}';
         this.functions.push(functionString);
@@ -143,7 +143,7 @@ var HandlerParser = /** @class */ (function () {
     HandlerParser.prototype.parseExport = function () {
         var _this = this;
         this.methodList.forEach(function (method) {
-            _this.exports.push("export { " + method + " };");
+            _this.exports.push("export { " + method.method + " };");
         });
     };
     /**
