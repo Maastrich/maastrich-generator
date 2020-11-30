@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+const generator = require('../dist/index.js');
+generator.Generation();
