@@ -1,3 +1,4 @@
+import { Method } from './Method';
 /**
  * type
  */
@@ -11,7 +12,7 @@ declare type Prototype = {
  * type
  */
 declare type MethodInfo = {
-    method: 'Get' | 'Post' | 'Put' | 'Delete';
+    method: Method;
     auth: number;
     description: string;
     querytype: Prototype[];
