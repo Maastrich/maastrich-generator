@@ -67,7 +67,7 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-*vscode*
+.vscode*
 # dotenv environment variables file
 .env
 .env.test
@@ -82,7 +82,7 @@ typings/
 .nuxt
 src
 tsconfig*
-settings*
+*settings*
 # dist
 
 # Gatsby files

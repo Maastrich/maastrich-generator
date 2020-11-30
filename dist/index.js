@@ -18,6 +18,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -60,16 +63,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var minimist_1 = __importDefault(require("minimist"));
 var Parser_1 = require("./Parser");
+var Env_1 = require("./Env");
 function Generation() {
     return __awaiter(this, void 0, void 0, function () {
-        var args, path, config, parser;
+        var args, env, path, config, parser;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     args = minimist_1.default(process.argv);
-                    console.log(args);
                     if (!(args.e || args.env)) return [3 /*break*/, 1];
-                    console.log('env');
+                    env = new Env_1.Environement();
+                    env.init();
                     return [3 /*break*/, 4];
                 case 1:
                     if (!(args['-c'] || args['--config'])) return [3 /*break*/, 3];
@@ -89,4 +93,5 @@ function Generation() {
     });
 }
 Generation();
+__exportStar(require("./Types"), exports);
 //# sourceMappingURL=index.js.map

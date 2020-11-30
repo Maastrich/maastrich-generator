@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = __importDefault(require("fs"));
 var cli_highlight_1 = __importDefault(require("cli-highlight"));
 var terminal_kit_1 = require("terminal-kit");
-var logger_1 = require("logger");
+var maastrich_logger_1 = require("maastrich-logger");
 var GitDiff = require('git-diff');
 var FileSaver = /** @class */ (function () {
     function FileSaver(logFile) {
@@ -16,7 +16,7 @@ var FileSaver = /** @class */ (function () {
         this.acceptedFiles = [];
         this.willCheckChangesItems = ['Review changes', 'Accept all changes', 'Quit generator without saving'];
         this.checkChangesItems = ['Refuse changes', 'Accept changes', 'Quit generator without saving'];
-        this.logger = new logger_1.Logger(logFile);
+        this.logger = new maastrich_logger_1.Logger(logFile);
     }
     FileSaver.prototype.addFile = function (file) {
         this.files.push(file);
