@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DatabaseInfos = exports.Env = void 0;
+exports.DatabaseInfos = exports.Environement = void 0;
 // eslint-disable-next-line max-classes-per-file
 var DatabaseInfos = /** @class */ (function () {
     function DatabaseInfos(type, name, uri) {
@@ -31,5 +31,5 @@ var Env = /** @class */ (function () {
     };
     return Env;
 }());
-exports.Env = Env;
+exports.Environement = Env;
 //# sourceMappingURL=Env.js.map

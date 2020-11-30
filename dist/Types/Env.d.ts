@@ -11,4 +11,4 @@ declare class Env {
     constructor(AuthSecret?: string, logFolder?: string, databases?: DatabaseInfos[]);
     stringify(): string;
 }
-export { Env, DatabaseInfos };
+export { Env as Environement, DatabaseInfos };

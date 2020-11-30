@@ -37,7 +37,7 @@ var Environement = /** @class */ (function () {
         this.oldContent = '';
         this.databases = [];
         this.logger = new maastrich_logger_1.Logger('./log');
-        this.env = new Types_1.Env();
+        this.env = new Types_1.Environement();
         if (!fs_1.existsSync('.env')) {
             fs_1.mkdirSync('.env');
         }

@@ -12,6 +12,8 @@
         "cli-highlight": "^2.1.8",
         "fs": "^0.0.1-security",
         "git-diff": "^2.0.6",
+        "global": "^4.4.0",
+        "maastrich-generator": "^1.1.4",
         "maastrich-logger": "^1.1.4",
         "minimist": "^1.2.5",
         "node": "^15.3.0",
