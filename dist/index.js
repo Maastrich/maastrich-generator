@@ -62,11 +62,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var minimist_1 = __importDefault(require("minimist"));
+var maastrich_logger_1 = require("maastrich-logger");
+var path_1 = require("path");
 var Parser_1 = require("./Parser");
 var Env_1 = require("./Env");
 function Generation() {
     return __awaiter(this, void 0, void 0, function () {
-        var args, env, path, config, parser;
+        var args, env, path, config, parser, e_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -74,20 +76,34 @@ function Generation() {
                     if (!(args.e || args.env)) return [3 /*break*/, 1];
                     env = new Env_1.Environement();
                     env.init();
-                    return [3 /*break*/, 4];
+                    return [3 /*break*/, 7];
                 case 1:
-                    if (!(args['-c'] || args['--config'])) return [3 /*break*/, 3];
-                    path = args['-c'] || args['--config'];
-                    return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require(path)); })];
+                    if (!(args.c || args.config)) return [3 /*break*/, 6];
+                    path = args.c || args.config;
+                    _a.label = 2;
                 case 2:
+                    _a.trys.push([2, 4, , 5]);
+                    return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require("./" + path_1.normalize(path))); })];
+                case 3:
                     config = _a.sent();
                     parser = new Parser_1.Parser(config);
                     parser.parseTypes();
-                    return [3 /*break*/, 4];
-                case 3:
-                    console.error('Argument parsing error');
-                    _a.label = 4;
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 4:
+                    e_1 = _a.sent();
+                    new maastrich_logger_1.Logger().error('Configuration file', (path === true) ? 'Argument path must not be empty' : "Unabled to load configuration file at ./" + path_1.normalize(path) + ": make sure the file exists and have the correct format", true);
+                    return [3 /*break*/, 5];
+                case 5: return [3 /*break*/, 7];
+                case 6:
+                    if (args.h || args.help) {
+                        new maastrich_logger_1.Logger().info(['-c, --config <path>\t\tConfigurate Types and Handler from config file at <path>', '-e, --env\t\t\tSetup project environement', '-h, --help\t\t\tDisplay this help message']);
+                        process.exit(0);
+                    }
+                    else {
+                        new maastrich_logger_1.Logger().error('You need at least one of these argument', ['-c, --config <path>', '-e, --env', '-h, --help'], true);
+                    }
+                    _a.label = 7;
+                case 7: return [2 /*return*/];
             }
         });
     });

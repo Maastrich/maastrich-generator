@@ -1,21 +1,19 @@
 {
   "name": "maastrich-generator",
   "version": "1.0.1",
-  "description": "Generate types and Handler from config file giver",
-  "main": "generator",
+  "description": "Generate env or types and Handler from config file giver",
+  "main": "./dist/index.js",
   "repository": "https://github.com/Maastrich/generator.git",
   "author": "Maastrich",
   "license": "MIT",
   "private": false,
   "preferGlobal": true,
-  "bin": {
-    "generator": "./bin/generator"
-  },
+  "bin": "./bin/generator",
   "dependencies": {
     "cli-highlight": "^2.1.8",
     "fs": "^0.0.1-security",
     "git-diff": "^2.0.6",
-    "maastrich-logger": "^1.0.0",
+    "maastrich-logger": "^1.1.4",
     "minimist": "^1.2.5",
     "node": "^15.3.0",
     "terminal-kit": "^1.44.0"

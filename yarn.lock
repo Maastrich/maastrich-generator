@@ -1388,10 +1388,10 @@ lunr@^2.3.9:
   resolved "https://registry.yarnpkg.com/lunr/-/lunr-2.3.9.tgz#18b123142832337dd6e964df1a5a7707b25d35e1"
   integrity sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==
 
-maastrich-logger@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/maastrich-logger/-/maastrich-logger-1.0.0.tgz#254aa05f45199114f3986b5cd23ee2da8cec6fb6"
-  integrity sha512-FkpY67dcxvgam1fiKhR9RAMilHgq1bD1l8wluSbYrBC3oS8DftserieEpHQIlMoof58m4lgm8ojBCdsFBcJxhg==
+maastrich-logger@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/maastrich-logger/-/maastrich-logger-1.1.4.tgz#7d98ecdb0657010b03eafea4b7b89505178fcf66"
+  integrity sha512-ejApSNWd/O8Nk91h49JWhGR7gp/smdDScK1PEjXNCEfyBmVVf7/Ex0U91Xxib45z88Bj5bripZCCzECX4u8tOQ==
   dependencies:
     fs "^0.0.1-security"
     node "^15.3.0"
