@@ -6,6 +6,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HandlerParser = void 0;
 var fs_1 = __importDefault(require("fs"));
+var Types_1 = require("../Types");
+function getContent(method) {
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+    switch (method.method) {
+        case Types_1.Method.Get: {
+            return "response.status(200).json(await (await database('" + ((_a = method.database) === null || _a === void 0 ? void 0 : _a.name) + "').get('" + ((_b = method.database) === null || _b === void 0 ? void 0 : _b.collection) + "', query)).toArray());";
+        }
+        case Types_1.Method.Post: {
+            return "response.status(200).json(await (await database('" + ((_c = method.database) === null || _c === void 0 ? void 0 : _c.name) + "').post('" + ((_d = method.database) === null || _d === void 0 ? void 0 : _d.collection) + "', body)).toArray());";
+        }
+        case Types_1.Method.Put: {
+            return "response.status(200).json(await (await database('" + ((_e = method.database) === null || _e === void 0 ? void 0 : _e.name) + "').get('" + ((_f = method.database) === null || _f === void 0 ? void 0 : _f.collection) + "', body, query)).toArray());";
+        }
+        case Types_1.Method.Delete: {
+            return "response.status(200).json(await (await database('" + ((_g = method.database) === null || _g === void 0 ? void 0 : _g.name) + "').get('" + ((_h = method.database) === null || _h === void 0 ? void 0 : _h.collection) + "', query)).toArray());";
+        }
+        default: return '';
+    }
+}
 /**
  *
  *
@@ -79,6 +98,12 @@ var HandlerParser = /** @class */ (function () {
      * @memberof HandlerParser
      */
     HandlerParser.prototype.parseImports = function () {
+        var _this = this;
+        this.methodList.forEach(function (method) {
+            if (method.database) {
+                _this.imports.push('import { database } from \'maastrich-database\'');
+            }
+        });
         this.imports.push("/* Handlers for route " + this.route + " */");
         this.imports.push('import { Response } from \'express\';');
         this.imports.push('import * as Types from \'./types\';');
@@ -92,8 +117,8 @@ var HandlerParser = /** @class */ (function () {
      */
     HandlerParser.prototype.createFunction = function (method) {
         var functionString = '';
-        functionString += "function " + method + "(response: Response, query: Types." + method + "Query, body: Types." + method + "Body) {\n";
-        functionString += '\tresponse.status(200).json({ query, body });\n';
+        functionString += "function " + method.method + "(response: Response, query: Types." + method.method + "Query, body: Types." + method + "Body) {\n";
+        functionString += "\t" + (method.database ? getContent(method) : 'response.status(200).json({ query, body });') + "\n";
         functionString += '}';
         this.functions.push(functionString);
     };

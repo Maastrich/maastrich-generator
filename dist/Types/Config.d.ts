@@ -8,11 +8,16 @@ declare type Prototype = {
     required: boolean;
     defaultValue?: any;
 };
+declare type DatabaseInfo = {
+    name: string;
+    collection: string;
+};
 /**
  * type
  */
 declare type MethodInfo = {
     method: Method;
+    database: DatabaseInfo | undefined;
     auth: number;
     description: string;
     querytype: Prototype[];

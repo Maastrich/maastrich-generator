@@ -1,3 +1,4 @@
+import { MethodInfo } from '../Types';
 /**
  *
  *
@@ -54,7 +55,7 @@ declare class HandlerParser {
      * @param {string} route
      * @memberof HandlerParser
      */
-    constructor(methodList: string[], filePath: string, route: string);
+    constructor(methodList: MethodInfo[], filePath: string, route: string);
     /**
      *
      *

@@ -69,10 +69,9 @@ var Parser = /** @class */ (function () {
                 var functionList = [];
                 route.methods.forEach(function (methodInfo) {
                     typesList.push({ method: methodInfo.method, query: methodInfo.querytype, body: methodInfo.bodytype });
-                    functionList.push(methodInfo.method);
                 });
                 _this.types.push(new Types_1.default(typesList, _this.path + route.path + "/types.ts", route.route));
-                _this.handlers.push(new Handlers_1.HandlerParser(functionList, _this.path + route.path + "/index.ts", route.route));
+                _this.handlers.push(new Handlers_1.HandlerParser(route.methods, _this.path + route.path + "/index.ts", route.route));
                 _this.progress = +((index / (_this.config.length)) / 2).toFixed(20);
                 _this.updateProgressBar();
             }, 100 * index);
