@@ -17,7 +17,7 @@ declare type DatabaseInfo = {
  */
 declare type MethodInfo = {
     method: Method;
-    database: DatabaseInfo | undefined;
+    database?: DatabaseInfo;
     auth: number;
     description: string;
     querytype: Prototype[];
