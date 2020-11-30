@@ -1,6 +1,6 @@
 {
     "name": "maastrich-generator",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Generate env or types and Handler from config file giver",
     "main": "./dist/index.js",
     "repository": "https://github.com/Maastrich/generator.git",
