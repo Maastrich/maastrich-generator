@@ -3,7 +3,7 @@
     "version": "1.1.6",
     "description": "Generate env or types and Handler from config file giver",
     "main": "./dist/index.js",
-    "repository": "https://github.com/Maastrich/generator.git",
+    "repository": "https://github.com/Maastrich/maastrich-generator.git",
     "author": "Maastrich",
     "license": "MIT",
     "private": false,
