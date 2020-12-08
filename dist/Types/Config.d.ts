@@ -27,6 +27,7 @@ declare type MethodInfo = {
  * type
  */
 declare type Route = {
+    _id?: any;
     route: string;
     path: string;
     methods: MethodInfo[];
