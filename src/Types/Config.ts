@@ -31,7 +31,6 @@ type MethodInfo = {
  * type
  */
 type Route = {
-  _id?: any;
   route: string;
   path: string;
   methods: MethodInfo[];
@@ -39,6 +38,11 @@ type Route = {
 
 type Config = Route[];
 
+type Project = {
+  _id: any;
+  routes: Route[]
+};
+
 export {
- Config, MethodInfo, Prototype,
+ Config, MethodInfo, Prototype, Project,
 };

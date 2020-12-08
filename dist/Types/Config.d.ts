@@ -27,10 +27,13 @@ declare type MethodInfo = {
  * type
  */
 declare type Route = {
-    _id?: any;
     route: string;
     path: string;
     methods: MethodInfo[];
 };
 declare type Config = Route[];
-export { Config, MethodInfo, Prototype, };
+declare type Project = {
+    _id: any;
+    routes: Route[];
+};
+export { Config, MethodInfo, Prototype, Project, };
