@@ -34,6 +34,7 @@ declare type Route = {
 declare type Config = Route[];
 declare type Project = {
     _id: any;
+    name: string;
     routes: Route[];
 };
 export { Config, MethodInfo, Prototype, Project, };
