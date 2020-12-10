@@ -36,5 +36,6 @@ declare type Project = {
     _id: any;
     name: string;
     routes: Route[];
+    userId: string[];
 };
 export { Config, MethodInfo, Prototype, Project, };

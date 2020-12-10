@@ -41,7 +41,8 @@ type Config = Route[];
 type Project = {
   _id: any;
   name: string;
-  routes: Route[]
+  routes: Route[];
+  userId: string[];
 };
 
 export {
